@@ -1,0 +1,193 @@
+/* OVERLAY */
+.modal-overflow {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55); /* slate-900 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* MODAL */
+.modal-body {
+  background: #ffffff;
+  width: 440px;
+  max-width: 92%;
+  padding: 28px 30px;
+  border-radius: 18px;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.25),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+  animation: modalFade 0.25s ease-out;
+}
+
+/* ANIMAÇÃO */
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* HEADER */
+.modal-body h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 22px;
+  color: #0f172a;
+  text-align: center;
+}
+
+/* BOTÃO FECHAR (NÃO ALTERADO) */
+.button_close {
+  width: 24px;
+  height: 24px;
+  margin-left: 95%;
+  border: none;
+  transition: transform 0.5s ease;
+}
+
+.button_close:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* FORM */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* GRUPO */
+.input-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.input-container label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* INPUTS */
+.input-container input[type="text"],
+.input-container input:not([type="checkbox"]) {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* FOCUS */
+.input-container input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* CHECKBOX */
+.input-container label:last-of-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #334155;
+  margin-top: 4px;
+}
+
+/* BOTÃO */
+.btn-secundario {
+  margin-top: 24px;
+  padding: 13px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-secundario:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #334155;
+  user-select: none;
+}
+
+/* Esconde o checkbox padrão */
+.checkbox input {
+  display: none;
+}
+
+/* Caixa customizada */
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 2px solid #cbd5f5;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.checkmark::after {
+  content: "";
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-2px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+
+
+/* Quando marcado */
+.checkbox input:checked + .checkmark {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.checkbox input:checked + .checkmark::after {
+  opacity: 1;
+}
+
+.checkbox input:focus + .checkmark {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+
+/* Hover */
+.checkbox:hover .checkmark {
+  border-color: #2563eb;
+}
