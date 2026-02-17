@@ -18,7 +18,8 @@ export function Navbar() {
               `nav-link ${isActive ? "active" : "link-dark"}`
             }
           >
-            Home
+            Inicio
+            <img src="casa.png" alt="" />
           </NavLink>
         </li>
 
@@ -30,6 +31,7 @@ export function Navbar() {
             }
           >
             Pendentes
+            <img src="pendente.png" alt="" />
           </NavLink>
         </li>
 
@@ -41,23 +43,30 @@ export function Navbar() {
             }
           >
             Concluídos
+            <img src="progresso-concluido.png" alt="" />
           </NavLink>
         </li>
       </ul>
 
       <hr />
       <div className="dropdown">
-        <NavLink to="/movimentacao" className="nav-link link-dark">
+        <NavLink
+          to="/movimentacao"
+          className={({ isActive }) =>
+            `nav-link ${isActive ? "active" : "link-dark"}`
+          }
+        >
 
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
-                alt="user"
-                width="32"
-                height="32"
-                className="rounded-circle me-2"
-              />
-              <strong>Movimentação</strong>
-          </NavLink>
+
+          <span>Movimentação</span>
+
+          <img
+            src="/grafico-simples.png"
+            alt="user"
+            width="20"
+            height="20"
+          />
+        </NavLink>
       </div>
     </>
   );

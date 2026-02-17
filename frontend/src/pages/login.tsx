@@ -8,11 +8,15 @@ export function Login() {
   const [password, setPassword] = useState("");
   const [ errorMessage, setErrorMessage ] = useState(""); 
   const [ showPassword, setShowPassword ] = useState(false);
+  const [ isLoading, setIsLoading ] = useState(false)
 
   const navigate = useNavigate(); 
 
   const handleLogin = async () => {
   try {
+
+    setIsLoading(true);
+
     const response = await loginPost(login, password);
 
     localStorage.setItem("token", response.data.token);
@@ -38,6 +42,8 @@ export function Login() {
     } else {
       setErrorMessage("Erro inesperado.");
     }
+  } finally {
+    setIsLoading(false);
   }
 };
 
@@ -47,12 +53,19 @@ export function Login() {
       <div className="login-card">
         <h2>Login</h2>
 
-        <input
-          type="text"
-          placeholder="Usuário"
-          value={login}
-          onChange={(e) => setLogin(e.target.value)}
-        />
+        <div className="user-container">
+          <input
+            type="text"
+            placeholder="Usuário"
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
+          />
+
+          <img src="/do-utilizador.png" alt="Usuário" />
+        </div>
+
+
+        
 
         <div className="password-container">
           <input
@@ -65,9 +78,13 @@ export function Login() {
           <img
             src={showPassword ? "/olhos-cruzados.png" : "/olho.png"}
             alt="Mostrar senha"
-            onClick={() => setShowPassword(!showPassword)}
+            onMouseDown={(e) => {
+              e.preventDefault(); 
+              setShowPassword(!showPassword);
+            }}
             className="toggle-password"
           />
+
         </div>
 
 
@@ -79,7 +96,11 @@ export function Login() {
       )}
 
 
-        <button className="btn-primary" onClick={handleLogin}>Entrar</button>
+        <button 
+              className="btn-primary"
+              onClick={handleLogin}
+              disabled={isLoading}>{ isLoading ? "Entrando..." : "Entrar" }
+        </button>
       </div>
     </div>
   );
