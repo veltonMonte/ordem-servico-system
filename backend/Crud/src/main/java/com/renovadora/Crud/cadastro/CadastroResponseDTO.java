@@ -1,6 +1,16 @@
 package com.renovadora.Crud.cadastro;
 
-public record CadastroResponseDTO(Long id, String name, String servico, boolean status, Integer quantidade, String data_entrada, String modelo, String numero) {
+import java.math.BigDecimal;
+
+public record CadastroResponseDTO(Long id, String name,
+                                  String servico,
+                                  boolean status,
+                                  Integer quantidade,
+                                  String data_entrada,
+                                  String modelo,
+                                  String numero,
+                                  BigDecimal valor
+) {
     public CadastroResponseDTO(Cadastro cadastro){
         this(
                 cadastro.getId(),
@@ -10,7 +20,8 @@ public record CadastroResponseDTO(Long id, String name, String servico, boolean 
                 cadastro.getQuantidade(),
                 cadastro.getData_entrada(),
                 cadastro.getModelo(),
-                cadastro.getNumero()
+                cadastro.getNumero(),
+                cadastro.getValor()
         );
 
     }

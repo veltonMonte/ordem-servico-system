@@ -3,6 +3,8 @@ package com.renovadora.Crud.cadastro;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Table(name = "Cadastros")
 @Entity(name = "Cadastros")
 @Getter
@@ -22,6 +24,8 @@ public class Cadastro {
     private String modelo;
     private Integer quantidade;
     private String numero;
+    private BigDecimal valor;
+
 
     public Cadastro(CadastroRequestDTO data){
         this.servico = data.servico();
@@ -31,6 +35,7 @@ public class Cadastro {
         this.quantidade = data.quantidade();
         this.data_entrada = data.data_entrada();
         this.numero = data.numero();
+        this.valor = data.valor();
 
     }
 
