@@ -7,9 +7,12 @@
 .dashboard-title {
   font-size: 28px;
   margin-bottom: 30px;
+  font-weight: 600;
 }
 
-/* CARDS */
+/* ===============================
+   CARDS
+================================ */
 
 .cards-container {
   display: grid;
@@ -20,15 +23,15 @@
 
 .card {
   padding: 25px;
-  border-radius: 12px;
+  border-radius: 14px;
   font-weight: 500;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
 }
 
 .card h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-size: 15px;
+  margin-bottom: 8px;
 }
 
 .card p {
@@ -37,93 +40,132 @@
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
 
-/* CORES */
-.green { background: linear-gradient(135deg, #00c896, #00a37a); }
-.blue { background: linear-gradient(135deg, #2196f3, #1769aa); }
-.purple { background: linear-gradient(135deg, #7c4dff, #512da8); }
-.yellow { background: linear-gradient(135deg, #fdd835, #f9a825); }
+/* CORES (mantendo seu padrão) */
+.green { background: linear-gradient(135deg, #60b7ff, #4da3f0); }
+.blue { background: linear-gradient(135deg, #00b1188e, #009e1675); }
+.purple { background: linear-gradient(135deg, #a058ffdc, #8e44ffcc); }
+.yellow { background: linear-gradient(135deg, rgba(255, 187, 0, 0.9), rgba(255, 170, 0, 0.8)); }
 
-/* CHART */
+/* ===============================
+   CHART
+================================ */
 
 .charts-container {
   margin-bottom: 40px;
 }
 
 .chart-box {
-  background: #2a2a3d;
+  background: #0d6efd;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 14px;
+  border: #aaa solid 1px;
 }
 
-.donut-chart {
-  width: 180px;
-  height: 180px;
-  margin: 20px auto;
-  border-radius: 50%;
-  background: conic-gradient(
-    #00c896 0% 50%,
-    #2196f3 50% 75%,
-    #fdd835 75% 100%
-  );
-  position: relative;
-}
-
-.donut-chart::after {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: #2a2a3d;
-  border-radius: 50%;
-  top: 40px;
-  left: 40px;
-}
-
-/* TABELA */
-
-.table-container {
-  background: #2a2a3d;
-  padding: 25px;
-  border-radius: 12px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  padding: 12px;
-  text-align: left;
-}
-
-th {
-  color: #aaa;
+.chart-box h3 {
+  margin-bottom: 10px;
   font-weight: 500;
 }
 
-tbody tr {
-  border-top: 1px solid #3a3a4f;
+/* DONUT */
+
+.donut-chart {
+  width: clamp(150px, 25vw, 200px);
+  aspect-ratio: 1 / 1;
+  margin: 20px auto;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-tbody tr:hover {
-  background-color: #343450;
+/* centro do donut */
+.donut-center {
+  width: 60%;
+  height: 60%;
+  background: #0d6efd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
 }
 
-/* STATUS */
-
-.status-open {
-  color: #2196f3;
+/* legenda */
+.chart-legend {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
 }
 
-.status-done {
-  color: #00c896;
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.status-pending {
-  color: #fdd835;
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.green-dot { background: #00c896; }
+.yellow-dot { background: #fdd835; }
+
+/* ===============================
+   FATURAMENTO POR MÊS
+================================ */
+
+.months-container {
+  background: #0d6efd;
+  padding: 25px;
+  border-radius: 14px;
+  border: #aaa solid 1px;
+  margin-top: 20px;
+}
+
+.months-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.month-card {
+  background: #f1f1f7;
+  border-radius: 12px;
+  padding: 16px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s;
+}
+
+.month-card:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+}
+
+.month-label {
+  font-size: 14px;
+  color: #222;
+}
+
+.month-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+}
+
+.muted {
+  color: #ddd;
+  margin-top: 12px;
 }

@@ -5,8 +5,8 @@ import Home from "./pages/home";
 import Concluidos from "./pages/concluidos";
 import Pendentes from "./pages/pendentes";
 import { Login } from "./pages/login";
-import { ProtectedRoute } from "./routes/ProtectdRoutes";
-import { Perfil } from "./pages/perfil/perfil";
+import { ProtectedRoute } from "./pages/ProtectRoutes";
+import { Movimentacao } from "./pages/perfil/moviementacao";
 
 
 export default function App() {
@@ -50,10 +50,10 @@ export default function App() {
 
           
             <Route
-              path="/perfil"
+              path="/movimentacao"
               element={
                 <ProtectedRoute>
-                  <Perfil />
+                  <Movimentacao />
                 </ProtectedRoute>
               }
             />

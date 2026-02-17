@@ -38,18 +38,19 @@ export default function Home() {
                 item.modelo.toLowerCase().includes(termo)
               );
             })
-            .map((item) => (
-              <OrdemServicoCard
-                key={item.id}
-                id={item.id}
-                status={item.status}
-                name={item.name}
-                servico={item.servico}
-                quantidade={item.quantidade}
-                modelo={item.modelo}
-                data_entrada={item.data_entrada}
-                numero={item.numero}
-              />
+              .map((item) => (
+                <OrdemServicoCard
+                  key={item.id}
+                  id={item.id}
+                  status={item.status}
+                  name={item.name}
+                  servico={item.servico}
+                  quantidade={item.quantidade}
+                  modelo={item.modelo}
+                  data_entrada={item.data_entrada}
+                  numero={item.numero}
+                  valor={item.valor}
+                />
             ))}
         </div>
       </div>

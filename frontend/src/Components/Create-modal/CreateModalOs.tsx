@@ -12,6 +12,7 @@ interface ModalProps {
   modelo: string;
   data_entrada: string;
   numero: string;
+  valor: number;
 }
 
 export function CreateModalOs({
@@ -23,10 +24,16 @@ export function CreateModalOs({
   quantidade,
   modelo,
   data_entrada,
-  numero
+  numero,
+  valor
 }: ModalProps) {
   const { deleteCadastro } = useCadastroDelete();
- const { mutate, isPending } = useCadastroUpdate();
+  const { mutate, isPending } = useCadastroUpdate();
+  const valorServico =
+  valor !== undefined && valor !== null
+    ? `R$ ${Number(valor).toFixed(2)}`
+    : "Valor não informado";
+
 
 
   const statusLabel = status ? "Concluído" : "Pendente";
@@ -74,6 +81,7 @@ export function CreateModalOs({
           <p><strong>Quantidade:</strong> {quantidade}</p>
           <p><strong>Data de Entrada:</strong> {data_entrada}</p>
           <p><strong>Número:</strong> {numero}</p>
+          <p><strong>Valor:</strong>{valorServico}</p>
         </div>
 
         <div className="modal-actions">

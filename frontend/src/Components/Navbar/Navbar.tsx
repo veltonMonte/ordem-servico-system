@@ -5,7 +5,7 @@ export function Navbar() {
 
   return (
     <>
-      <span className="fs-4">Renovadora</span>
+      <span className="fs-4">Renovadora de Pneus Veri</span>
 
       <hr />
 
@@ -47,7 +47,7 @@ export function Navbar() {
 
       <hr />
       <div className="dropdown">
-        <NavLink to="/perfil" className="nav-link link-dark">
+        <NavLink to="/movimentacao" className="nav-link link-dark">
 
               <img
                 src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
@@ -56,7 +56,7 @@ export function Navbar() {
                 height="32"
                 className="rounded-circle me-2"
               />
-              <strong>Administrador</strong>
+              <strong>Movimentação</strong>
           </NavLink>
       </div>
     </>

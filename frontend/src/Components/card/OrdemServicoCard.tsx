@@ -11,9 +11,10 @@ interface CardProps {
   modelo: string;
   data_entrada: string;
   numero: string;
+  valor: number;
 }
 
-export function OrdemServicoCard({ status, servico, name, id, quantidade, modelo, data_entrada, numero }: CardProps) {
+export function OrdemServicoCard({ status, servico, name, id, quantidade, modelo, data_entrada, numero, valor }: CardProps) {
   const [isModalOpenOs, setIsModalOpenOs] = useState(false);
 
   const statusServico = status ? "Concluído" : "Pendente";
@@ -53,6 +54,7 @@ export function OrdemServicoCard({ status, servico, name, id, quantidade, modelo
           modelo={modelo}
           data_entrada={data_entrada}
           numero={numero}
+          valor={valor}
         />
       )}
     </>
