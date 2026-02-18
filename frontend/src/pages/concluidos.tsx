@@ -51,6 +51,7 @@ export default function Concluidos() {
                 modelo={item.modelo}
                 data_entrada={item.data_entrada}
                 numero={item.numero}
+                valor={item.valor}
               />
             ))
           ) : (
