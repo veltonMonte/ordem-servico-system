@@ -64,7 +64,7 @@ export function CreateModalOs({
     <div className="modal-overlay" onClick={closeModal}>
       <div className="modal-body" onClick={(e) => e.stopPropagation()}>
         <img
-          src="./public/cruz.png"
+          src="/cruz.png"
           alt="Fechar"
           className="button_close"
           onClick={closeModal}
