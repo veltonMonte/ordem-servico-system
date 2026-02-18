@@ -1,9 +1,20 @@
-FROM eclipse-temurin:21-jdk
+# ---------- STAGE 1: Build ----------
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 
 WORKDIR /app
 
 COPY . .
 
-RUN ./mvnw clean package -DskipTests || mvn clean package -DskipTests
+RUN mvn clean package -DskipTests
 
-CMD ["java", "-jar", "target/Crud-0.0.1-SNAPSHOT.jar"]
+
+# ---------- STAGE 2: Runtime ----------
+FROM eclipse-temurin:21-jdk
+
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
+EXPOSE 8081
+
+ENTRYPOINT ["java","-jar","app.jar"]
