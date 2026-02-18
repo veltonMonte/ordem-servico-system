@@ -14,7 +14,7 @@ public class CorsConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of(""https://ordem-servico-system.vercel.app"")); // seu front
+        config.setAllowedOrigins(List.of(""https://ordem-servico-system.vercel.app""));
         config.setAllowCredentials(true);
         config.addAllowedHeader("*");
         config.addAllowedMethod("*"); // GET, POST, PUT, DELETE, OPTIONS
