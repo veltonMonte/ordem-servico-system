@@ -1,8 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://ordem-servico-system.onrender.com",
-  withCredentials: true,
+  baseURL: "https://ordem-servico-system.onrender.com"
 });
 
 api.interceptors.request.use((config) => {
