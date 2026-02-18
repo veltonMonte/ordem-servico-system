@@ -1,12 +1,10 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "https://ordem-servico-system.onrender.com
-",
+  baseURL: "https://ordem-servico-system.onrender.com",
   withCredentials: true,
 });
 
-/* Interceptor de request (envia token) */
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
